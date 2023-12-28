@@ -1,0 +1,402 @@
+[
+    {
+        "id": 1,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 2,
+        "marque_id": 1,
+        "nom": "Air Force 1",
+        "lien": "air_force_1.png",
+        "prix": "230",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 3,
+        "marque_id": 1,
+        "nom": "React Element",
+        "lien": "nike_react_element.png",
+        "prix": "520",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 4,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 5,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 6,
+        "marque_id": 1,
+        "nom": "Air Force 1",
+        "lien": "air_force_1.png",
+        "prix": "230",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 7,
+        "marque_id": 1,
+        "nom": "React Element",
+        "lien": "nike_react_element.png",
+        "prix": "520",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 8,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 9,
+        "marque_id": 1,
+        "nom": "Air Force 1",
+        "lien": "air_force_1.png",
+        "prix": "230",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 10,
+        "marque_id": 1,
+        "nom": "React Element",
+        "lien": "nike_react_element.png",
+        "prix": "520",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 11,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 12,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 13,
+        "marque_id": 1,
+        "nom": "Air Force 1",
+        "lien": "air_force_1.png",
+        "prix": "230",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 14,
+        "marque_id": 1,
+        "nom": "React Element",
+        "lien": "nike_react_element.png",
+        "prix": "520",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 15,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 16,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 17,
+        "marque_id": 1,
+        "nom": "Air Force 1",
+        "lien": "air_force_1.png",
+        "prix": "230",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 18,
+        "marque_id": 1,
+        "nom": "React Element",
+        "lien": "nike_react_element.png",
+        "prix": "520",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 19,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 20,
+        "marque_id": 1,
+        "nom": "Air Force 1",
+        "lien": "air_force_1.png",
+        "prix": "230",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 21,
+        "marque_id": 1,
+        "nom": "React Element",
+        "lien": "nike_react_element.png",
+        "prix": "520",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 22,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 23,
+        "marque_id": 1,
+        "nom": "Air Max 90",
+        "lien": "air_max_90.png",
+        "prix": "120",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 24,
+        "marque_id": 1,
+        "nom": "Air Force 1",
+        "lien": "air_force_1.png",
+        "prix": "230",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    },
+    {
+        "id": 25,
+        "marque_id": 1,
+        "nom": "React Element",
+        "lien": "nike_react_element.png",
+        "prix": "520",
+        "tailles": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42"
+        ]
+    }
+]
