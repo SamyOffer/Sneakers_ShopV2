@@ -72,3 +72,25 @@ export async function getSpecificShoes(id){
 
   return filteredShoes;
 }
+
+export async function getIsInInventory(){
+  const filteredShoes = [];
+  for (const shoeKey in data003) {
+      const shoe = data003[shoeKey];
+      if (shoe.is_in_inventory === true) {
+        filteredShoes.push(shoe);
+      }
+  }
+  return filteredShoes;
+}
+
+export async function getIsNotInInventory(){
+  const filteredShoes = [];
+  for (const shoeKey in data003) {
+      const shoe = data003[shoeKey];
+      if (shoe.is_in_inventory === false) {
+        filteredShoes.push(shoe);
+      }
+  }
+  return filteredShoes;
+}

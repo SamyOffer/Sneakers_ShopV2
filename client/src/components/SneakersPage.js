@@ -1,49 +1,95 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
-import modeles from '../database/modeles.json';
-import { Link } from 'react-router-dom';
-
+import { getAllShoes, getIsInInventory, getIsNotInInventory } from './Models/Models';
+import { Link } from "react-router-dom";
 
 const SneakersPage = () => {
-  const [images, setImages] = useState([]);
 
-  useEffect(() => { // useEffect permet d'effectuer des actions au chargement de la page
-    const importImages = async () => { // async permet d'attendre que les images soient chargées
-      const importedImages = await Promise.all( // Promise.all permet d'attendre que toutes les promesses soient résolues
-        modeles.map(async (modele) => { // map permet de parcourir tous les modeles de paires de sneakers
-          const { default: image } = await import(`../assets/${modele.lien}`); // import permet d'importer une image
-          return { ...modele, image }; // on retourne un objet avec les propriétés du modele et l'image
-        })
-      );
-      setImages(importedImages); // on met à jour le state avec les images
+  const [listShoes, setListShoes] = useState([]);
+  const [filteredShoes, setFilteredShoes] = useState([]);
+  const [filterOption, setFilterOption] = useState('ALL');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const shoesData = await getAllShoes();
+        setListShoes(shoesData);
+        setFilteredShoes(shoesData);
+      } catch (err) {
+        console.log(err);
+      }
     };
-
-    importImages();
+    fetchData();
   }, []);
 
-  return (
-    <div className='SneakersPage'>
-        <Header />
-        <h1 className='text-3xl ml-28 mb-5 mt-5'> All the Sneakers </h1>
-        <div className='flex flex-wrap ml-44'>
-        {images.map((modele) => (
-            <Link to={`/ProductPage/${modele.id}`} className='cursor-pointer mb-8 mr-8'>
-            <img
-                src={modele.image}
-                alt={modele.nom}
-                key={modele.id}
-                className="object-cover w-[15em] h-[15em]"
-            />        
-            <div className='text-xl font-bold flex justify-between'>
-                <div>{modele.nom}</div>
-                <div>{modele.prix}€</div>
-            </div>
-            </Link>
-        ))}
-        </div>
-    </div>
-);
+  const handleFilterChange = async (filterType) => {
+    let filteredData;
+    switch (filterType) {
+      case 'ALL':
+        filteredData = listShoes;
+        break;
+      case 'INVENTORY':
+        filteredData = await getIsInInventory();
+        break;
+      case 'NOT_INVENTORY':
+        filteredData = await getIsNotInInventory();
+        break;
+      default:
+        filteredData = listShoes;
+        break;
+    }
+    setFilterOption(filterType);
+    setFilteredShoes(filteredData);
+  }
 
+  function displayShoes() {
+    return (
+      <div className="flex flex-wrap ml-44 mt-5">
+        {filteredShoes.map((shoes, id) => (
+          <Link to={`/ProductPage/${shoes.id}`} key={shoes.id} className='cursor-pointer mb-8 mr-8'>
+            <img
+              src={shoes.imageURL}
+              alt={shoes.imageURL}
+              className="object-cover w-[15em] h-[15em]"
+            />
+          </Link>
+        ))}
+      </div>
+    );
+  }
+
+  const DisplayFilterButtons = () => {
+    return (
+      <div className="my-4 ml-10">
+        <button
+          onClick={() => handleFilterChange('ALL')}
+          className={`mr-2 px-4 py-2 ${filterOption === 'ALL' ? 'bg-gray-300' : 'bg-gray-100'} text-gray-800 rounded`}
+        >
+          TOUS
+        </button>
+        <button
+          onClick={() => handleFilterChange('INVENTORY')}
+          className={`mr-2 px-4 py-2 ${filterOption === 'INVENTORY' ? 'bg-gray-300' : 'bg-gray-100'} text-gray-800 rounded`}
+        >
+          EN STOCK
+        </button>
+        <button
+          onClick={() => handleFilterChange('NOT_INVENTORY')}
+          className={`px-4 py-2 ${filterOption === 'NOT_INVENTORY' ? 'bg-gray-300' : 'bg-gray-100'} text-gray-800 rounded`}
+        >
+          PAS EN STOCK
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <Header />
+      <DisplayFilterButtons />
+      {displayShoes()}
+    </div>
+  );
 };
 
 export default SneakersPage;

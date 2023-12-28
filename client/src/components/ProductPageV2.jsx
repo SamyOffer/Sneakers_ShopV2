@@ -4,33 +4,47 @@ import Header from "./Header";
 import { getSpecificShoes } from "./Models/Models";
 
 //* chatgpt
-const SizeSelector = () => {
-    const [selectedSize, setSelectedSize] = useState(""); // État pour stocker la taille sélectionnée
+const SizeSelector = ({ onSelectSize, shoes }) => {
+  const [selectedSize, setSelectedSize] = useState("");
+  const [isInInventory, setIsInInventory] = useState(true);
 
-    const sizes = Array.from({ length: 11 }, (_, index) => 38 + index); // Créer un tableau de tailles du 38 au 48
+  const sizes = Array.from({ length: 11 }, (_, index) => 38 + index);
 
-    const handleSizeClick = (size) => {
-        setSelectedSize(size);
-    };
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+    onSelectSize(size);
+  };
 
-    return (
-        <div className="my-10">
-            <label>Choisissez votre taille :</label>
-            <div className="flex flex-wrap">
-                {sizes.map((size) => (
-                    <button
-                        key={size}
-                        onClick={() => handleSizeClick(size)}
-                        className={`mr-2 mb-2 p-2 border ${selectedSize === size ? "bg-slate-400 text-white" : ""
-                            }`}
-                    >
-                        {size}
-                    </button>
-                ))}
-            </div>
-        </div>
-    );
+  useEffect(() => {
+    if (shoes.length > 0) {
+      const firstShoe = shoes[0];
+      setIsInInventory(firstShoe.is_in_inventory === true);
+    } else {
+      setIsInInventory(false);
+    }
+  }, [shoes]);
+
+  return (
+    <div className="my-10">
+      {isInInventory === true ? <p className="text-1xl font-bold">Choose a size please : </p> : <p className="text-2xl font-bold  text-red-500">Not available</p>}
+      <div className="flex flex-wrap">
+        {sizes.map((size) => (
+          <button
+            key={size}
+            onClick={() => handleSizeClick(size)}
+            className={`mr-2 mb-2 p-2 border ${selectedSize === size ? "bg-slate-400 text-white" : ""} ${isInInventory === false ? "line-through" : ""
+              }`}
+            disabled={!isInInventory}
+          >
+            {size}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 };
+
+
 
 /*
 const DisplayDescription = ({ shoes }) => {
@@ -102,7 +116,8 @@ const ProductPageV2 = () => {
         <p  style={{ color: 'red' }} className="text-2xl font-bold text-center">{shoesVar.brand}</p>
         <p className="text-4xl font-bold text-center">{shoesVar.name}</p>
         <p className="text-3xl font-bold text-center mt-3">From {shoesVar.price}€</p>
-        <SizeSelector onSelectSize={handleSizeSelection} />
+        <SizeSelector onSelectSize={handleSizeSelection} shoes={shoes} />
+
         <p className="text-3xl font-bold text-center mb-3">{shoesVar.SKU}</p>
         <div className="flex mt-4">
           <button
