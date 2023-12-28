@@ -32,6 +32,44 @@ const SizeSelector = () => {
     );
 };
 
+/*
+const DisplayDescription = ({ shoes }) => {
+  const shoesVar = shoes && shoes[0]; 
+  return (
+    <div className="flex flex-col ml-44 mt-10 mr-44">
+      {shoesVar ? (
+        <p className="text-2xl font-bold text-center">{shoesVar.description}</p>
+      ) : (
+        <p className="text-xl text-center">No description available</p>
+      )}
+    </div>
+  );
+  }:*/
+  const DisplayDescription = ({ shoes }) => {
+    const shoesVar = shoes && shoes[0];  // si je ne mets pas ça alors j'ai une erreure qui me dis que shoes est vide  
+    const description = shoesVar ? shoesVar.description : '';
+  
+    // Séparer le texte en mots
+    const words = description.split(' ');
+  
+    // Extraire les trois premiers mots
+    const firstThreeWords = words.slice(0, 3).join(' ');
+  
+    // Reste du texte après les trois premiers mots
+    const remainingText = words.slice(3).join(' ');
+  
+    return (
+      <div className="flex flex-col ml-44 mt-10 mr-44">
+        <p className="text-2xl font-bold text-center">
+          <span style={{ color: 'red' }}>{firstThreeWords}</span> {remainingText}
+        </p>
+      </div>
+    );
+  };
+  
+
+
+
 const ProductPageV2 = () => {
   const [shoes, setShoes] = useState([]);
   const [quantity, setQuantity] = useState(1); // État pour suivre la quantité sélectionnée
@@ -61,9 +99,11 @@ const ProductPageV2 = () => {
     const shoesVar = shoes[0];
     return (
       <div className="flex flex-col ml-44 mt-10 ">
-        <h2 className="text-2xl font-bold text-center">{shoesVar.brand}</h2>
-        <h1 className="text-4xl font-bold text-center">{shoesVar.name}</h1>
+        <p  style={{ color: 'red' }} className="text-2xl font-bold text-center">{shoesVar.brand}</p>
+        <p className="text-4xl font-bold text-center">{shoesVar.name}</p>
+        <p className="text-3xl font-bold text-center mt-3">From {shoesVar.price}€</p>
         <SizeSelector onSelectSize={handleSizeSelection} />
+        <p className="text-3xl font-bold text-center mb-3">{shoesVar.SKU}</p>
         <div className="flex mt-4">
           <button
             onClick={() => {setQuantity(quantity - 1 > 0 ? quantity - 1 : 1);
@@ -81,7 +121,7 @@ const ProductPageV2 = () => {
             +
           </button>
         </div>
-        <button className="mt-4 px-6 py-3 bg-blue-500 text-white rounded">
+        <button className="mt-4 px-6 py-3 text-white rounded bg-black">
           Ajouter au panier
         </button>
       </div>
@@ -108,10 +148,12 @@ const ProductPageV2 = () => {
     }
   }
 
+
   return (
     <div className="">
       <Header />
       {displayImage()}
+      <DisplayDescription  shoes={shoes}/>
     </div>
   );
 };
