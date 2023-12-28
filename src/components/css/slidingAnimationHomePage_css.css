@@ -1,0 +1,34 @@
+.slidingAnimationHomePage_container {
+    max-width: 100%; /* Adjust this value based on your design */
+    overflow: hidden;
+  }
+
+.slidingAnimationHomePage_scroll {
+    white-space: nowrap;
+    margin: 0 2em;
+}
+
+.slidingAnimationHomePage_scroll div{
+    display: flex;
+    gap: 2em;
+}
+
+.slidingAnimationHomePage_scroll p{
+    font-weight: bold;
+    margin-bottom: 0;
+    line-height: 10px;
+}
+
+.RightToLeft {
+    animation: RightToLeft 20s linear infinite;
+}
+
+@keyframes RightToLeft {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

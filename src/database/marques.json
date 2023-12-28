@@ -1,0 +1,24 @@
+[
+  {"id": 1, "nom": "Nike"},
+  {"id": 2, "nom": "Adidas"},
+  {"id": 3, "nom": "Puma"},
+  {"id": 4, "nom": "Reebok"},
+  {"id": 5, "nom": "Converse"},
+  {"id": 6, "nom": "Vans"},
+  {"id": 7, "nom": "New Balance"},
+  {"id": 8, "nom": "Under Armour"},
+  {"id": 9, "nom": "ASICS"},
+  {"id": 10, "nom": "Skechers"},
+  {"id": 11, "nom": "Clarks"},
+  {"id": 12, "nom": "Timberland"},
+  {"id": 13, "nom": "Dr. Martens"},
+  {"id": 14, "nom": "Salomon"},
+  {"id": 15, "nom": "Fila"},
+  {"id": 16, "nom": "Vans"},
+  {"id": 17, "nom": "Birkenstock"},
+  {"id": 18, "nom": "Ecco"},
+  {"id": 19, "nom": "Lacoste"},
+  {"id": 20, "nom": "Mizuno"}
+]
+
+  
