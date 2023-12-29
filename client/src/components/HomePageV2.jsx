@@ -20,7 +20,7 @@ const HomePageV2 = () => {
     
     const getUsers = async () => {
       try{
-        const response = await fetch("/getAllUsers");
+        const response = await fetch("/getCartFromOneUser");
         const data = await response.json();
         setNotes(data);
         console.log("users : ", data);
