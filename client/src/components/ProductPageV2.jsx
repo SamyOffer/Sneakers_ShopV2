@@ -86,14 +86,15 @@ const ProductPageV2 = () => {
   const { sneakerId } = useParams();
   const [selectedSize, setSelectedSize] = useState(""); // État pour stocker la taille sélectionnée
   const navigate = useNavigate(); // Use useNavigate instead of useHistory
-
-
+  const [cart , setCart] = useState([]);
+  const [showAddedToCartMessage, setShowAddedToCartMessage] = useState(false); // État pour afficher le message "Ajouté au panier" pendant 3 secondes
 
   useEffect(() => {
     const navigateToHome = () => {
       navigate("/");
     };
-
+ 
+    console.log("cart : ", cart);
     const fetchData = async () => {
       try {
         const getShoes = await getSpecificShoes(sneakerId);
@@ -106,36 +107,93 @@ const ProductPageV2 = () => {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
+      // Vérifie si le user est connecté alors si il est connecter je prends son paniers en cours et si il veut ajouter un article ça va l'ajouter
+      try{
+        const getUserFromLocalStorage = JSON.parse(localStorage.getItem('user'))._id;
+        if (null !== getUserFromLocalStorage) {
+          console.log("getUserFromLocalStorage : ", getUserFromLocalStorage);
+          try {
+            const reponse = await fetch('/getCartFromOneUser', { 
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                id: getUserFromLocalStorage,
+              }), // Include the data in the body
+            });
+            const cartData = await reponse.json();
+            setCart(cartData);
+          }
+          catch (error) {
+            console.error("Error during registration:", error);
+          } 
+        }
+      }
+      catch (error) {
+        console.error("Error fetching data:", error);
+      } 
     };
     fetchData();
   }, [sneakerId, navigate]);
 
-
-
-    
   const handleSizeSelection = (size) => {
     setSelectedSize(size);  
   };
 
-  const addToCart = () => {
-    // Check if the required information is available
-    if (selectedSize && quantity > 0) {
-      // Construct the URL with parameters
-      const cartUrl = `/CartPage/${sneakerId}/${selectedSize}/${quantity}`;
-      
-      // Navigate to the cart page with parameters
-      navigate(cartUrl);
-    } else {
-      // Handle the case where size or quantity is not selected
-      console.error("Please select a size and quantity before adding to the cart.");
+  const addToCart = async () => {
+
+    if(selectedSize === ""){
+      alert("Please select a size");
+      return;
+    }
+
+
+    // ajoute dans le panier de l'utilisateur
+  
+  //selectedSize && quantity  pour avoir la taille souhaité et la quantité
+    try {
+      const user = JSON.parse(localStorage.getItem('user'));
+      const response = await fetch('/updateCart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: user._id,
+          sneakerId,
+          size: selectedSize,
+          quantity,
+        }),
+      });
+      console.log("response : ", response);
+      if (response.ok) {
+        console.log("Cart updated successfully");
+        setShowAddedToCartMessage(true);
+
+        // Hide the message after 3 seconds
+        setTimeout(() => {
+          setShowAddedToCartMessage(false);
+        }, 3000);
+      } else {
+        console.error('Failed to update cart');
+      }
+    } catch (error) {
+      console.error('Error during cart update:', error);
     }
   };
-    
+  
 
   function displayShoesInformation() {
     const shoesVar = shoes[0];
     return (
+      
       <div className="flex flex-col ml-28 mt-10 ">
+         {showAddedToCartMessage && (
+        <div className="added-to-cart-message flex flex-col justify-center items-center">
+          Item added to your cart!
+        </div>
+      )}
         <p  style={{ color: 'red' }} className="text-2xl font-bold text-center">{shoesVar.brand}</p>
         <p className="text-4xl font-bold text-center">{shoesVar.name}</p>
         <p className="text-3xl font-bold text-center mt-3">From {shoesVar.price}€</p>
@@ -178,6 +236,7 @@ const ProductPageV2 = () => {
             key={shoesVar.id}
             className="object-cover w-[30em] h-[30em]"
           />
+         
           {displayShoesInformation()}
         </div>
       );

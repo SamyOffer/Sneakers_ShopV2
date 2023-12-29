@@ -17,19 +17,6 @@ const HomePageV2 = () => {
   const [listByBrand , setListByBrand] = useState([]);
   const [notes, setNotes] = useState([]);
   useEffect(() => {
-    
-    const getUsers = async () => {
-      try{
-        const response = await fetch("/getCartFromOneUser");
-        const data = await response.json();
-        setNotes(data);
-        console.log("users : ", data);
-      }
-      catch(error){
-        console.error('Erreur lors de la récupération des données:', error);
-      }
-    }
-    getUsers();
 
     const fetchData = async () => {
       try {

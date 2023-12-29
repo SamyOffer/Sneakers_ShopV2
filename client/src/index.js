@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css'; // Chemin vers votre fichier Tailwind
 import App from './App';
 import MyAccount from './components/MyAccount';
-import LoginPage from './components/LoginPage';
-import RegisterPage from './components/RegisterPage';
+import LoginPageV2 from './components/LoginPageV2';
+import RegisterPageV2 from './components/RegisterPageV2';
 import SneakersPage from './components/SneakersPage';
 import ProductPageV2 from './components/ProductPageV2';
 import CartPageV2 from './components/CartPageV2';
@@ -19,11 +19,11 @@ const Root = () => (
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/MyAccount" element={<MyAccount />} />
-      <Route path="/LoginPage" element={<LoginPage />} />
-      <Route path="/RegisterPage" element={<RegisterPage />} />
+      <Route path="/LoginPage" element={<LoginPageV2 />} />
+      <Route path="/RegisterPage" element={<RegisterPageV2 />} />
       <Route path="/SneakersPage" element={<SneakersPage />} />
       <Route path="/ProductPage/:sneakerId" element={<ProductPageV2 />} />
-      <Route path="/CartPage/:id/:size/:quantity" element={<CartPageV2 />} />
+      <Route path="/CartPage" element={<CartPageV2 />} />
       <Route path='/shipping48h' element={<Shipping48H />} />
       <Route path='/Contact' element={<ContactV2 />} />
       <Route path='/AboutUs' element={<AboutUs />} />

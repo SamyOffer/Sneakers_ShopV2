@@ -18,7 +18,7 @@ const Header = () => {
       <div className="shipping48h ml-4 hover:text-gray-300">
         <Link to="/shipping48h">Shipping 48h</Link>
       </div>
-      {localStorage.getItem("token") === null ? (
+      {localStorage.getItem("user") === null ? (
         <div className="Compte ml-4 hover:text-gray-300">
           <Link to="/LoginPage"><CiLogin/></Link>
         </div>

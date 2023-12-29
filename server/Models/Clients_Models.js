@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const panierItemSchema = new mongoose.Schema({
   id: String, // Assuming id is a string, adjust the type as needed
   quantity: Number,
+  size : Number,
 });
 
 const userSchema = new mongoose.Schema({
