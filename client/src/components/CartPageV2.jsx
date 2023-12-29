@@ -101,8 +101,8 @@ const CartPageV2 = () => {
           <DisplayShoes />
         </div>
         <div className="flex-0 p-4 mt-auto pr-48">
-          <p className="text-2xl font-bold mb-20">Total Price: {totalPrice}€</p>
-          <button className="bg-black text-white px-12 py-2 rounded border-2 border-white">
+          <p className="text-2xl font-bold mb-20">Total Price: {totalPrice}€</p> 
+          <button className="bg-black text-white px-12 py-2 rounded border-2 border-white"> {/* a faire rediriger avec stripe */}
             Validate my cart
           </button>
         </div>
@@ -112,4 +112,4 @@ const CartPageV2 = () => {
   );
 };
 
-export default CartPageV2;
+export default CartPageV2; 
