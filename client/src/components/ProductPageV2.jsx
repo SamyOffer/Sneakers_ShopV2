@@ -134,7 +134,7 @@ const ProductPageV2 = () => {
   function displayShoesInformation() {
     const shoesVar = shoes[0];
     return (
-      <div className="flex flex-col ml-44 mt-10 ">
+      <div className="flex flex-col ml-28 mt-10 ">
         <p  style={{ color: 'red' }} className="text-2xl font-bold text-center">{shoesVar.brand}</p>
         <p className="text-4xl font-bold text-center">{shoesVar.name}</p>
         <p className="text-3xl font-bold text-center mt-3">From {shoesVar.price}€</p>
@@ -170,7 +170,7 @@ const ProductPageV2 = () => {
 
     if (shoesVar) {
       return (
-        <div className="flex flex-wrap ml-44 mt-10">
+        <div className="flex flex-wrap ml-32 mt-10">
           <img
             src={shoesVar.imageURL}
             alt={shoesVar.imageURL}

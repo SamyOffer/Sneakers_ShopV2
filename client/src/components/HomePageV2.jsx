@@ -37,27 +37,25 @@ const HomePageV2 = () => {
   }, []);
 
   function displayShoes() {
-
     // en gros ça permet de changer la classe si j'ai moins de 3 
-    // items à affciher parce que sinon l'affcihe est pas bon
-    const containerClassName = listShoes.length < 3 ? "flex justify-center mt-5" : "flex flex-wrap pl-44 mt-5"; 
-
+    // items à afficher parce que sinon l'affiche est pas bon
+    const containerClassName = listShoes.length < 3 ? "flex justify-center mt-5" : "flex flex-wrap justify-center mt-5"; 
+  
     return (
       <div className={`${containerClassName}`}>
         {listShoes.map((shoes, id) => (
-          <Link to={`/ProductPage/${shoes.id}`}
-            className='cursor-pointer mb-8 mr-8'>
+          <Link to={`/ProductPage/${shoes.id}`} key={shoes.id} className='cursor-pointer mb-8' style={{ marginRight: id !== listShoes.length - 1 ? '8px' : '0' }}>
             <img
               src={shoes.imageURL}
               alt={shoes.imageURL}
-              key={shoes.id}
               className="object-cover w-[15em] h-[15em]"
             />
           </Link>
         ))}
       </div>
-    )
+    );
   }
+  
 
   function displayGenderDropDown() {
     return (
