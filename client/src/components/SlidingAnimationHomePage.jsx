@@ -13,7 +13,7 @@ function SlidingAnimationHomePage() {
     { phrase: "Free delivery from 200€", icon: <CiDeliveryTruck /> },
     { phrase: "Dedicated and available customer service", icon: <BsChatDots /> },
     { phrase: "Authentic products", icon: <BsStar /> },
-    { phrase: "Payment in 2, 3, or 4 installments with Alma", icon: <PiContactlessPaymentThin /> },
+    { phrase: "Payment in 2, 3, or 4 times with Alma", icon: <PiContactlessPaymentThin /> },
     { phrase: "Free delivery from 200€", icon: <CiDeliveryTruck /> },
     { phrase: "Dedicated and available customer service", icon: <BsChatDots /> },
     { phrase: "Authentic products", icon: <BsStar /> },
