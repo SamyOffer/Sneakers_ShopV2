@@ -189,11 +189,6 @@ const ProductPageV2 = () => {
     return (
       
       <div className="flex flex-col ml-28 mt-10 ">
-         {showAddedToCartMessage && (
-        <div className="added-to-cart-message flex flex-col justify-center items-center">
-          Item added to your cart!
-        </div>
-      )}
         <p  style={{ color: 'red' }} className="text-2xl font-bold text-center">{shoesVar.brand}</p>
         <p className="text-4xl font-bold text-center">{shoesVar.name}</p>
         <p className="text-3xl font-bold text-center mt-3">From {shoesVar.price}€</p>
@@ -249,6 +244,11 @@ const ProductPageV2 = () => {
   return (
     <div className="">
       <Header />
+      {showAddedToCartMessage && (
+        <div className="added-to-cart-message flex flex-col items-center">
+          Item added to your cart!
+        </div>
+      )}
       {displayImage()}
       <DisplayDescription  shoes={shoes}/>
       <Footer/>
