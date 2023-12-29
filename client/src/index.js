@@ -9,6 +9,7 @@ import RegisterPage from './components/RegisterPage';
 import SneakersPage from './components/SneakersPage';
 import ProductPageV2 from './components/ProductPageV2';
 import CartPage from './components/CartPage';
+import Shipping48H from './components/Shipping48H'
 const Root = () => (
   <Router>
     <Routes>
@@ -19,6 +20,7 @@ const Root = () => (
       <Route path="/SneakersPage" element={<SneakersPage />} />
       <Route path="/ProductPage/:sneakerId" element={<ProductPageV2 />} />
       <Route path="/CartPage" element={<CartPage />} />
+      <Route path='/shipping48h' element={<Shipping48H />} />
     </Routes>
   </Router>
 );
