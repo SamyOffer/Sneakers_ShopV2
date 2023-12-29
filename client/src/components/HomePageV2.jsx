@@ -36,7 +36,7 @@ const HomePageV2 = () => {
   }, []);
 
   function displayShoes() {
-    return (<div className="flex flex-wrap ml-44 mt-5">
+    return (<div className="flex flex-wrap pl-44 mt-5">
       {listShoes.map((shoes, id) => (
         <Link to={`/ProductPage/${shoes.id}`}
           className='cursor-pointer mb-8 mr-8'>
@@ -86,7 +86,8 @@ const HomePageV2 = () => {
       <SlidingAnimationHomePage />
       <div className="flex flex-row justify-center items-center">
         <div className="flex flex-col justify-center items-center">
-          <h1 className="text-4xl font-bold mb-10 my-10">Sneakers Availables Now !</h1>
+          <div className="text-4xl font-bold mb-10 my-10">Sneakers Availables Now !</div>
+          <div className="mb-10">ALOO</div>
           <div className="flex flex-row justify-center items-center">
             {displayGenderDropDown()}
           </div>

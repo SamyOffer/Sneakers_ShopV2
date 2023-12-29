@@ -12,7 +12,7 @@ const DisplayShoes= ({shoes}) => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center ">
           <p className="text-2xl font-bold text-center">
             {shoes[0].brand}
           </p>
@@ -79,7 +79,7 @@ const Shipping48H = () => {
         <div>
             <Header/>
             <TextPage/>
-            <div className='mb-20 flex flex-col items-center justify-center text-9xl text-red-500'>
+            <div className=' flex flex-col items-center justify-center text-9xl text-red-500'>
                 <FaArrowDown />
             </div>
             <DisplayShoes shoes={shoes} />
