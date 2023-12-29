@@ -5,16 +5,32 @@ import SlidingAnimationHomePage from "./SlidingAnimationHomePage";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { getAllShoes, getAllBrands, getAllCategorys, getSpecificGenders, getAllGenders, getSpecificBrand } from "./Models/Models";
+import Footer from "./Footer";
 
 const HomePageV2 = () => {
+
   const [listShoes, setListShoes] = useState([]);
   const [listBrands, setListBrands] = useState([]);
   const [listCategorys, setListCategorys] = useState([]);
   const [listGender, setListGender] = useState([]);
   const [selectedGender, setSelectedGender] = useState("");
   const [listByBrand , setListByBrand] = useState([]);
-
+  const [notes, setNotes] = useState([]);
   useEffect(() => {
+    
+    const getUsers = async () => {
+      try{
+        const response = await fetch("/getAllUsers");
+        const data = await response.json();
+        setNotes(data);
+        console.log("users : ", data);
+      }
+      catch(error){
+        console.error('Erreur lors de la récupération des données:', error);
+      }
+    }
+    getUsers();
+
     const fetchData = async () => {
       try {
         const shoesData = await getAllShoes();
@@ -50,6 +66,9 @@ const HomePageV2 = () => {
               alt={shoes.imageURL}
               className="object-cover w-[15em] h-[15em]"
             />
+            <div>
+              <p className="">{shoes.name}</p>
+            </div>
           </Link>
         ))}
       </div>
@@ -122,6 +141,7 @@ const HomePageV2 = () => {
           {displayShoes()}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

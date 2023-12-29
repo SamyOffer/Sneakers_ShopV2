@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {useParams, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import { getSpecificShoes } from "./Models/Models";
+import Footer from "./Footer";
 
 //* chatgpt
 const SizeSelector = ({ onSelectSize, shoes }) => {
@@ -191,6 +192,7 @@ const ProductPageV2 = () => {
       <Header />
       {displayImage()}
       <DisplayDescription  shoes={shoes}/>
+      <Footer/>
     </div>
   );
 };

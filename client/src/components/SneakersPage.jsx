@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import { getAllShoes, getIsInInventory, getIsNotInInventory } from './Models/Models';
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const SneakersPage = () => {
 
@@ -52,6 +53,9 @@ const SneakersPage = () => {
               alt={shoes.imageURL}
               className="object-cover w-[15em] h-[15em]"
             />
+            <div>
+              <p className="">{shoes.name}</p>
+            </div>
           </Link>
         ))}
       </div>
@@ -88,6 +92,7 @@ const SneakersPage = () => {
       <Header />
       <DisplayFilterButtons />
       {displayShoes()}
+      <Footer/>
     </div>
   );
 };

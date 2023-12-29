@@ -3,6 +3,7 @@ import Header from './Header'
 import { getSpecificShoes } from './Models/Models'
 import { FaArrowDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const DisplayShoes= ({shoes}) => {
     console.log("shoes : ", shoes[0]);
@@ -83,6 +84,7 @@ const Shipping48H = () => {
                 <FaArrowDown />
             </div>
             <DisplayShoes shoes={shoes} />
+            <Footer/>
         </div>
     )
 }
