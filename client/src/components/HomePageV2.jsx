@@ -4,7 +4,7 @@ import Header from "./Header";
 import SlidingAnimationHomePage from "./SlidingAnimationHomePage";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { getAllShoes, getAllBrands, getAllCategorys, getSpecificGenders, getAllGenders } from "./Models/Models";
+import { getAllShoes, getAllBrands, getAllCategorys, getSpecificGenders, getAllGenders, getSpecificBrand } from "./Models/Models";
 
 const HomePageV2 = () => {
   const [listShoes, setListShoes] = useState([]);
@@ -12,6 +12,7 @@ const HomePageV2 = () => {
   const [listCategorys, setListCategorys] = useState([]);
   const [listGender, setListGender] = useState([]);
   const [selectedGender, setSelectedGender] = useState("");
+  const [listByBrand , setListByBrand] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,19 +37,25 @@ const HomePageV2 = () => {
   }, []);
 
   function displayShoes() {
-    return (<div className="flex flex-wrap pl-44 mt-5">
-      {listShoes.map((shoes, id) => (
-        <Link to={`/ProductPage/${shoes.id}`}
-          className='cursor-pointer mb-8 mr-8'>
-          <img
-            src={shoes.imageURL}
-            alt={shoes.imageURL}
-            key={shoes.id}
-            className="object-cover w-[15em] h-[15em]"
-          />
-        </Link>
-      ))}
-    </div>
+
+    // en gros ça permet de changer la classe si j'ai moins de 3 
+    // items à affciher parce que sinon l'affcihe est pas bon
+    const containerClassName = listShoes.length < 3 ? "flex justify-center mt-5" : "flex flex-wrap pl-44 mt-5"; 
+
+    return (
+      <div className={`${containerClassName}`}>
+        {listShoes.map((shoes, id) => (
+          <Link to={`/ProductPage/${shoes.id}`}
+            className='cursor-pointer mb-8 mr-8'>
+            <img
+              src={shoes.imageURL}
+              alt={shoes.imageURL}
+              key={shoes.id}
+              className="object-cover w-[15em] h-[15em]"
+            />
+          </Link>
+        ))}
+      </div>
     )
   }
 
@@ -77,6 +84,27 @@ const HomePageV2 = () => {
     );
   }
 
+  function changeListWithGander(event) {
+    const selectedBrand = event.target.value;
+    getSpecificBrand(selectedBrand).then((data) => {
+      setListShoes(data);
+    });
+  }
+
+  const DisplayBrandButton = () => {
+    return (
+      <div>
+        {listBrands.map((brand, id) => (
+          <button onClick={changeListWithGander} value={brand} 
+          className="mr-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            {brand}
+          </button>
+        ))}
+      </div>
+    );
+  }
+  
+
 
   return (
     <div className="flex flex-col">
@@ -87,7 +115,9 @@ const HomePageV2 = () => {
       <div className="flex flex-row justify-center items-center">
         <div className="flex flex-col justify-center items-center">
           <div className="text-4xl font-bold mb-10 my-10">Sneakers Availables Now !</div>
-          <div className="mb-10">ALOO</div>
+          <div className="mb-10">
+            <DisplayBrandButton/>
+          </div>
           <div className="flex flex-row justify-center items-center">
             {displayGenderDropDown()}
           </div>

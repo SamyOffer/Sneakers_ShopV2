@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {useParams, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import { getSpecificShoes } from "./Models/Models";
 
@@ -43,9 +43,6 @@ const SizeSelector = ({ onSelectSize, shoes }) => {
     </div>
   );
 };
-
-
-
 /*
 const DisplayDescription = ({ shoes }) => {
   const shoesVar = shoes && shoes[0]; 
@@ -82,30 +79,55 @@ const DisplayDescription = ({ shoes }) => {
   };
   
 
-
-
 const ProductPageV2 = () => {
   const [shoes, setShoes] = useState([]);
   const [quantity, setQuantity] = useState(1); // État pour suivre la quantité sélectionnée
   const { sneakerId } = useParams();
   const [selectedSize, setSelectedSize] = useState(""); // État pour stocker la taille sélectionnée
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+
 
 
   useEffect(() => {
+    const navigateToHome = () => {
+      navigate("/");
+    };
+
     const fetchData = async () => {
       try {
         const getShoes = await getSpecificShoes(sneakerId);
         setShoes(getShoes);
+
+        // If getShoes is empty, navigate to "/"
+        if (getShoes.length === 0) {
+          navigateToHome();
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
     fetchData();
-  }, [sneakerId]);
+  }, [sneakerId, navigate]);
+
+
 
     
   const handleSizeSelection = (size) => {
     setSelectedSize(size);  
+  };
+
+  const addToCart = () => {
+    // Check if the required information is available
+    if (selectedSize && quantity > 0) {
+      // Construct the URL with parameters
+      const cartUrl = `/CartPage/${sneakerId}/${selectedSize}/${quantity}`;
+      
+      // Navigate to the cart page with parameters
+      navigate(cartUrl);
+    } else {
+      // Handle the case where size or quantity is not selected
+      console.error("Please select a size and quantity before adding to the cart.");
+    }
   };
     
 
@@ -136,7 +158,7 @@ const ProductPageV2 = () => {
             +
           </button>
         </div>
-        <button className="mt-4 px-6 py-3 text-white rounded bg-black">
+        <button className="mt-4 px-6 py-3 text-white rounded bg-black" onClick={addToCart}>
           Add to cart
         </button>
       </div>

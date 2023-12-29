@@ -38,7 +38,7 @@ const Shipping48H = () => {
     useEffect( () => {
         const fetchData = async () => {
             try {
-                const shoesData = await getSpecificShoes(13); // modifie ici le chiffre pour choisir la promo
+                const shoesData = await getSpecificShoes(3); // modifie ici le chiffre pour choisir la promo
                 setShoes(shoesData);
                 console.log(shoesData)
             }

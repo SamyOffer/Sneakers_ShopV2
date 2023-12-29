@@ -57,7 +57,6 @@ export async function getSpecificGenders(gender) {
       }
     }
   }
-
   return filteredShoes;
 }
 
@@ -91,6 +90,20 @@ export async function getIsNotInInventory(){
       if (shoe.is_in_inventory === false) {
         filteredShoes.push(shoe);
       }
+  }
+  return filteredShoes;
+}
+
+export async function getSpecificBrand(brand) {
+  const filteredShoes = [];
+
+  for (const shoeKey in data003) {
+    if (data003.hasOwnProperty(shoeKey)) {
+      const shoe = data003[shoeKey];
+      if (shoe.brand === brand) {
+        filteredShoes.push(shoe);
+      }
+    }
   }
   return filteredShoes;
 }

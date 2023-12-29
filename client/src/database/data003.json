@@ -76,7 +76,7 @@
   },
   "nike-phantom-vision-elite-dynamic-fit-fg": {
     "id": 6,
-    "name": "Nike Phantom Vision Elite Dynamic Fit FG",
+    "name": "Nike Phantom Vision Elite FG",
     "brand": "NIKE",
     "gender": "WOMEN",
     "category": "FOOTBALL",
@@ -106,7 +106,7 @@
   },
   "nike-mercurial-vapor-13-elite-tech-craft-fg": {
     "id": 8,
-    "name": "Nike Mercurial Vapor 13 Elite Tech Craft FG",
+    "name": "Nike Mercurial Vapor 13 Elite FG",
     "brand": "NIKE",
     "gender": "MEN",
     "category": "FOOTBALL",
@@ -121,7 +121,7 @@
   },
   "nike-mercurial-superfly-7-pro-mds-fg": {
     "id": 9,
-    "name": "Nike Mercurial Superfly 7 Pro MDS FG",
+    "name": "Nike Mercurial Superfly 7 Pro FG",
     "brand": "NIKE",
     "gender": "MEN",
     "category": "FOOTBALL",

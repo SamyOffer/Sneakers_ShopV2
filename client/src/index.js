@@ -8,7 +8,7 @@ import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
 import SneakersPage from './components/SneakersPage';
 import ProductPageV2 from './components/ProductPageV2';
-import CartPage from './components/CartPage';
+import CartPageV2 from './components/CartPageV2';
 import Shipping48H from './components/Shipping48H'
 const Root = () => (
   <Router>
@@ -19,7 +19,9 @@ const Root = () => (
       <Route path="/RegisterPage" element={<RegisterPage />} />
       <Route path="/SneakersPage" element={<SneakersPage />} />
       <Route path="/ProductPage/:sneakerId" element={<ProductPageV2 />} />
-      <Route path="/CartPage" element={<CartPage />} />
+      {/*<Route path="/CartPage" element={<CartPage />} />*/}
+      <Route path="/CartPage/:id/:size/:quantity" element={<CartPageV2 />} />
+
       <Route path='/shipping48h' element={<Shipping48H />} />
     </Routes>
   </Router>
