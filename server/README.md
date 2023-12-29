@@ -111,6 +111,9 @@ Let's understand thoses lines :
 - The second line is listening on {PORT} to make it accessible for *fetch* for any clients
 
 
+# I DIDN'T SETUP THE MODELS, IT WILL NOT WORK WITH THIS. 
+
+
 ## Ok perfect, our server is setup, we can start it with the following line and then start the client.
 
 Start the server : 
