@@ -151,7 +151,7 @@ git clone https://github.com/SamyOffer/Sneakers_ShopV2
 cd Sneakers_ShopV2
 ```
 ```sh
-cd clients
+cd client
 ```
 
 3. Install the dependencies:
