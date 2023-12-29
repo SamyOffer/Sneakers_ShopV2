@@ -10,18 +10,18 @@ import {PiContactlessPaymentThin} from "react-icons/pi";
  */
 function SlidingAnimationHomePage() {
   const phrasesWithIcons = [
-    { phrase: "Livraison offerte des 200€", icon: <CiDeliveryTruck /> },
-    { phrase: "Service client dédié et disponible", icon: <BsChatDots /> },
-    { phrase: "Produits authentiques", icon: <BsStar /> },
-    { phrase: "Paiement en 2,3 ou 4 fois avec Alma", icon: <PiContactlessPaymentThin /> },
-    { phrase: "Livraison offerte des 200€", icon: <CiDeliveryTruck /> },
-    { phrase: "Service client dédié et disponible", icon: <BsChatDots /> },
-    { phrase: "Produits authentiques", icon: <BsStar /> },
-    { phrase: "Paiement en 2,3 ou 4 fois avec Alma", icon: <PiContactlessPaymentThin /> },
-    { phrase: "Livraison offerte des 200€", icon: <CiDeliveryTruck /> },
-    { phrase: "Service client dédié et disponible", icon: <BsChatDots /> },
-    { phrase: "Produits authentiques", icon: <BsStar /> },
-    { phrase: "Paiement en 2,3 ou 4 fois avec Alma", icon: <PiContactlessPaymentThin /> },
+    { phrase: "Free delivery from 200€", icon: <CiDeliveryTruck /> },
+    { phrase: "Dedicated and available customer service", icon: <BsChatDots /> },
+    { phrase: "Authentic products", icon: <BsStar /> },
+    { phrase: "Payment in 2, 3, or 4 installments with Alma", icon: <PiContactlessPaymentThin /> },
+    { phrase: "Free delivery from 200€", icon: <CiDeliveryTruck /> },
+    { phrase: "Dedicated and available customer service", icon: <BsChatDots /> },
+    { phrase: "Authentic products", icon: <BsStar /> },
+    { phrase: "Payment in 2, 3, or 4 installments with Alma", icon: <PiContactlessPaymentThin /> },
+    { phrase: "Free delivery from 200€", icon: <CiDeliveryTruck /> },
+    { phrase: "Dedicated and available customer service", icon: <BsChatDots /> },
+    { phrase: "Authentic products", icon: <BsStar /> },
+    { phrase: "Payment in 2, 3, or 4 installments with Alma", icon: <PiContactlessPaymentThin /> }
   ];
 
   return (
@@ -33,7 +33,7 @@ function SlidingAnimationHomePage() {
               <div className="slidingAnimationHomePage__icon ml-2 text-3xl">
                 {item.icon}
               </div>  
-              <div className="slidingAnimationHomePage__phrase">
+              <div className="slidingAnimationHomePage__phrase text-1xl">
                 {item.phrase}
               </div>
             </div>

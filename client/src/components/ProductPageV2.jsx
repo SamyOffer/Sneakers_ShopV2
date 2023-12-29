@@ -137,7 +137,7 @@ const ProductPageV2 = () => {
           </button>
         </div>
         <button className="mt-4 px-6 py-3 text-white rounded bg-black">
-          Ajouter au panier
+          Add to cart
         </button>
       </div>
     );

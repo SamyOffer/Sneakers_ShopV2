@@ -65,19 +65,19 @@ const SneakersPage = () => {
           onClick={() => handleFilterChange('ALL')}
           className={`mr-2 px-4 py-2 ${filterOption === 'ALL' ? 'bg-gray-300' : 'bg-gray-100'} text-gray-800 rounded`}
         >
-          TOUS
+          All
         </button>
         <button
           onClick={() => handleFilterChange('INVENTORY')}
           className={`mr-2 px-4 py-2 ${filterOption === 'INVENTORY' ? 'bg-gray-300' : 'bg-gray-100'} text-gray-800 rounded`}
         >
-          EN STOCK
+          In Stock
         </button>
         <button
           onClick={() => handleFilterChange('NOT_INVENTORY')}
           className={`px-4 py-2 ${filterOption === 'NOT_INVENTORY' ? 'bg-gray-300' : 'bg-gray-100'} text-gray-800 rounded`}
         >
-          PAS EN STOCK
+          Not in Stock
         </button>
       </div>
     );
