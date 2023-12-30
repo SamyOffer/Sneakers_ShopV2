@@ -135,7 +135,7 @@ const ProductPageV2 = () => {
       } 
     };
     fetchData();
-  }, [sneakerId, navigate]);
+  }, [sneakerId, navigate, cart]);
 
   const handleSizeSelection = (size) => {
     setSelectedSize(size);  

@@ -21,7 +21,7 @@ const LoginPageV2 = () => {
       navigate("/");
       return;
     }
-  }, []);
+  }, [navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

@@ -51,21 +51,26 @@ app.post("/getOneUserByEmail", async (req, res) => {
 
 
 app.post("/getOneUserByID", async (req, res) => {
-    const email = req.body.email;
-    try {
-        const user = await User.findOne({ _id: req.body.id });
-        console.log("user : ", user);
-        
-        if (user === null) { 
-            res.status(200).json(null);
-        } else {
-            res.status(200).json(user);
-        }
-    } catch (err) {
-        console.log(err);
-        res.status(500).json("err : " + err.message);
-    }
+  const email = req.body.email;
+  try {
+      const user = await User.findOne({ _id: req.body.id });
+
+      if (user === null) { 
+          res.status(200).json(null);
+      } else {
+          // Exclure le champ du mot de passe avant de renvoyer les informations de l'utilisateur
+          /*elle extrait le champ du mot de passe de l'objet utilisateur (password) et regroupe le reste des propriétés 
+          dans un nouvel objet (userWithoutPassword). Cela permet de créer un nouvel objet qui représente l'utilisateur 
+          sans inclure le mot de passe, et c'est cet objet qui est renvoyé en réponse JSON. */
+          const { password, ...userWithoutPassword } = user.toObject();
+          res.status(200).json(userWithoutPassword);
+      }
+  } catch (err) {
+      console.log(err);
+      res.status(500).json("err : " + err.message);
+  }
 });
+
 
 
 app.post('/updateCart', async (req, res) => {
@@ -186,4 +191,81 @@ app.post("/login", async (req, res) => {
       res.status(500).json({ message: "Internal Server Error" });
     }
   });
+
+
+  app.post("/removeFromCart", async (req, res) => {
+    try {
+      const { userId, sneakerId, size } = req.body;
   
+      const user = await User.findOne({ _id: userId });
+  
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      // Remove the item from the cart
+      user.Paniers = user.Paniers.filter(
+        (item) => !(item.id === sneakerId && item.size === size)
+      );
+  
+      await user.save();
+  
+      res.status(200).json({ message: "Item removed from cart" });
+    } catch (error) {
+      console.error("Error removing item from cart:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  app.post("/updateQuantity", async (req, res) => {
+    try {
+      const { userId, sneakerId, size, quantity } = req.body;
+  
+      const user = await User.findOne({ _id: userId });
+  
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      // Mise à jour de la quantité pour l'élément spécifié dans le panier
+      user.Paniers = user.Paniers.map((item) =>
+        item.id === sneakerId && item.size === size ? { ...item, quantity } : item
+      );
+  
+      await user.save();
+  
+      res.status(200).json({ message: "Quantity updated successfully" });
+    } catch (error) {
+      console.error("Error updating quantity:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+  
+
+  // ... (autres imports et code)
+
+app.post("/EditMyShippingInfo", async (req, res) => {
+  try {
+    const { userId, address } = req.body;
+
+    // Vérifier si l'utilisateur avec l'_id fourni existe
+    const user = await User.findOne({ _id: userId });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Mettre à jour le champ shippingAddress avec la nouvelle adresse fournie
+    user.shippingAddress = address;
+
+    // Enregistrer les modifications dans la base de données
+    await user.save();
+
+    res.status(200).json({ message: "Shipping address updated successfully" });
+  } catch (error) {
+    console.error("Error updating shipping address:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// ... (autres routes)

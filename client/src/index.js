@@ -13,7 +13,7 @@ import Shipping48H from './components/Shipping48H'
 import ContactV2 from './components/ContactV2';
 import AboutUs from './components/AboutUs';
 import TermOfUse from './components/TermOfUse';
-
+import EditShippingInfo from './components/EditShippingInfo';
 const Root = () => (
   <Router>
     <Routes>
@@ -28,6 +28,7 @@ const Root = () => (
       <Route path='/Contact' element={<ContactV2 />} />
       <Route path='/AboutUs' element={<AboutUs />} />
       <Route path='/Terms_of_use' element={<TermOfUse />} />
+      <Route path='/EditShippingInfo' element={<EditShippingInfo />} />
     </Routes>
   </Router>
 );

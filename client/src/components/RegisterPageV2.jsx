@@ -21,7 +21,7 @@ const RegisterPage = () => {
       navigate("/");
       return;
     }
-  }, []);
+  }, [navigate]);
 
   const [message, setMessage] = useState("");
 
