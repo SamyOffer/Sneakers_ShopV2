@@ -32,7 +32,25 @@
 ## 📍 Overview
 This is a project I undertook independently to enhance my skills in React and MongoDB. I created a website for ordering sneakers and implemented an MVC architecture.
 
-It took me approximately 1 day to build the current version of the site (excluding the integration with the Clients and Cart database).
+I did this project over 2 days in about **20 hours of work.**  
+It's a fully functional site, as you can see in the video. I implemented all the functionalities. I authenticated a user and logged him in. I checked his shopping cart to display a message depending on whether there are items in it.
+If an item is unavailable, then it's not possible to put it in the basket.
+I've also implemented the ability to change address and log out.
+When a user logs in, I keep a connection token in the localStorage and when they log out, I destroy it.
+
+
+Possible improvements :
+Implement a payment system with Stripe, for example.
+Encrypt and decrypt the user's password on the client side with Bcrypt.
+
+Translated with www.DeepL.com/Translator (free version)
+
+## Video of the project 
+
+
+https://github.com/SamyOffer/Sneakers_ShopV2/assets/94078861/247bcfcc-818e-4e01-b708-91b5feba4ef0
+
+
 
 
 ## 📂 Repository Structure
