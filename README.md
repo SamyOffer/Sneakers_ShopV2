@@ -43,8 +43,6 @@ Possible improvements :
 Implement a payment system with Stripe, for example.
 Encrypt and decrypt the user's password on the client side with Bcrypt.
 
-Translated with www.DeepL.com/Translator (free version)
-
 ## Video of the project 
 
 https://github.com/SamyOffer/Sneakers_ShopV2/assets/94078861/9c366e9d-086f-400a-9743-55134fabddbf
