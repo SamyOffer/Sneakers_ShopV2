@@ -47,11 +47,7 @@ Translated with www.DeepL.com/Translator (free version)
 
 ## Video of the project 
 
-
-https://github.com/SamyOffer/Sneakers_ShopV2/assets/94078861/247bcfcc-818e-4e01-b708-91b5feba4ef0
-
-
-
+https://github.com/SamyOffer/Sneakers_ShopV2/assets/94078861/9c366e9d-086f-400a-9743-55134fabddbf
 
 ## 📂 Repository Structure
 
